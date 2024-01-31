@@ -19,7 +19,7 @@ function encrypt() {
         o: 'ober',
         u: 'fat',
     };
-    let encryptedText = mainText.replace(/[aeiou]/g, function (remplaceVowels) {
+    let encryptedText = mainText.replace(/[aeiou]/gi, function (remplaceVowels) {
         return vowels[remplaceVowels];
 
     });
@@ -45,7 +45,7 @@ function decrypt() {
         ober: 'o',
         fat: 'u',
     };
-    let decryptText = mainText.replace(/(ai|enter|imes|ober|fat)/g, function (remplaceEncrypt) {
+    let decryptText = mainText.replace(/(ai|enter|imes|ober|fat)/gi, function (remplaceEncrypt) {
         return replaceVowels[remplaceEncrypt];
     })
     
