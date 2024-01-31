@@ -20,7 +20,7 @@ function encrypt() {
         u: 'fat',
     };
     let encryptedText = mainText.replace(/[aeiou]/gi, function (remplaceVowels) {
-        return vowels[remplaceVowels];
+        return vowels[remplaceVowels.toLowerCase()];
 
     });
     resultENDE.innerText = encryptedText;
@@ -46,7 +46,7 @@ function decrypt() {
         fat: 'u',
     };
     let decryptText = mainText.replace(/(ai|enter|imes|ober|fat)/gi, function (remplaceEncrypt) {
-        return replaceVowels[remplaceEncrypt];
+        return replaceVowels[remplaceEncrypt.toLowerCase()];
     })
     
     resultENDE.innerText = decryptText;
