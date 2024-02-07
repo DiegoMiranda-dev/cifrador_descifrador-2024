@@ -56,13 +56,16 @@ function decrypt() {
 
 async function copy() {
     let resultENDE = document.getElementById('result-en/de').innerText;
-
+  
     try {
         await navigator.clipboard.writeText(resultENDE);
-        console.log('Copiado con éxito');
+        window.alert('Copiado correctamente c:');
     } catch (err) {
         console.log('error');
+        window.alert('Error al copiar :c')
     }
+   
+
 }
 
 
