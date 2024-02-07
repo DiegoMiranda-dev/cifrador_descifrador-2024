@@ -1,4 +1,6 @@
-
+let btnencrypt = document.getElementById('btn-encrypt');
+let btndecrypt = document.getElementById('btn-decrypt');
+let btncopy = document.getElementById('btn-copy')
 
 function encrypt() {
     let mainText = document.getElementById('before-text').value;
@@ -47,7 +49,7 @@ function decrypt() {
     };
     let decryptText = mainText.replace(/(ai|enter|imes|ober|fat)/gi, function (remplaceEncrypt) {
         return replaceVowels[remplaceEncrypt.toLowerCase()];
-    })
+    });
     
     resultENDE.innerText = decryptText;
 }
@@ -63,6 +65,10 @@ async function copy() {
     }
 }
 
+
+btnencrypt.addEventListener( "click", encrypt);
+btndecrypt.addEventListener("click", decrypt);
+btncopy.addEventListener("click", copy);
 
 
 
