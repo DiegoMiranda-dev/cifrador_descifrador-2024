@@ -34,14 +34,20 @@ body {
     justify-content: space-between;
 }
 
+textarea {
+    resize: none;
+    border: none;
+    outline: none;
+}
+
 .main-text {
     width: 100%;
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     color: var(--Dark-blue-dark-blue-300);
     background-color: var(--Light-blue-light-blue-200);
-    border: none;
-    outline: none;
+    
+ 
     
     
 }
