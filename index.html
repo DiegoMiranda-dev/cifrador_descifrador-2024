@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Programa para encriptar y desencriptar texto en mayúsculas o minúsculas. Pruebalo YA!">
     <meta name="keyword" content="cifrar, cifrador, encriptar, encriptador, mensaje oculto, CIDE, secreto">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="icon" href="img/icons8-encrypt.svg">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -19,12 +16,12 @@
 
     <header>
         <figure class="image-header">
-            <img src="img/Top.svg" alt="Logo Alura" title="Logo Alura">
+            <img src="img/Top.svg" width="32" height="48" alt="Logo Alura" title="Logo Alura">
         </figure>
     </header>
     <main class="principal">
         <section class="first-section">
-            <textarea id="before-text" class="main-text" rows="10" placeholder="Ingresa el texto aqui"></textarea>
+            <textarea id="before-text" class="main-text" rows="10" placeholder="Ingresa el texto aqui" pseudo="-webkit-input-placeholder" id="placeholder"></textarea>
 
             <div class="footer-first-section">
                 <div class="botons">
@@ -45,9 +42,10 @@
                             </div>
                             <div class="person-text" id="person-text">
                                 <h1 id="show-h1">Ningún mensaje fue encontrado</h1>
-                                <textarea cols="20" rows="5" class="result"
-                                    id="result-en/de">Ingresa el texto que desees encriptar o desencriptar.</textarea>
-                            </div>
+                                <label for="txt"><textarea cols="20" rows="5" class="result"
+                                    id="result-en/de" name="txt">Ingresa el texto que desees encriptar o desencriptar.</textarea>
+                                </label>
+                                </div>
                             <footer class="footer-second-section">
                                 <button class="btn" id="btn-copy">Copiar</button>
                             </footer>
