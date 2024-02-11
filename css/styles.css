@@ -159,7 +159,16 @@ textarea {
 #btn-copy {
   display: none;
   color: #0a3871;
+  transition: 0.3s ease-in-out;
 }
+
+#btn-copy:hover {
+  background-color: #0a3871;
+  color: #fff;
+
+}
+
+
 
 #result-en {
   word-wrap: break-word;
@@ -256,6 +265,8 @@ textarea {
     width: 8rem;
     margin: 1rem 0;
   }
+  
+  
 }
 
 @media screen and (min-width: 156px) and (max-width: 207px) {
