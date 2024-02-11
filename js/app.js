@@ -1,3 +1,5 @@
+
+
 let btnencrypt = document.getElementById("btn-encrypt");
 let btndecrypt = document.getElementById("btn-decrypt");
 let btncopy = document.getElementById("btn-copy");
@@ -6,7 +8,7 @@ let resultENDE = document.getElementById("result-en/de");
 function encrypt() {
   let mainText = document.getElementById("before-text").value;
   if (mainText.trim() === "") {
-    alert("Campo de texto vacio >:c");
+    alertsENDE('¡Error!', 'No hay ningún texto para cifrar');
     return;
   }
 
@@ -27,9 +29,9 @@ function encrypt() {
 function decrypt() {
   let mainText = document.getElementById("before-text").value;
   if (mainText.trim() === "") {
-    alert("Campo de texto vacio >:c");
+    alertsENDE('¡Error!', 'No hay ningún texto para descifrar');
     return;
-    }
+  }
 
   let replaceVowels = {
     ai: "a",
@@ -50,9 +52,37 @@ function decrypt() {
 async function copy() {
   try {
     await navigator.clipboard.writeText(resultENDE.value);
-    window.alert("Copiado correctamente c:");
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "¡Copiado correctamente!"
+    });
   } catch (err) {
-    window.alert("Error al copiar :c");
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "error",
+      title: "¡Oopss..! Error al copiar."
+    });
   }
 }
 
@@ -63,7 +93,6 @@ function UpdateUI(text, message) {
   let personTextHTML = document.getElementById("person-text");
   let sitPersonHTML = document.getElementById("sit-person");
   showH1.innerText = message;
-  floatingHTML.style.borderTopRightRadius = "0px";
   floatingHTML.style.justifyContent = "space-between";
   resultENDE.style.width = "250px";
   resultENDE.style.height = "400px";
@@ -74,7 +103,35 @@ function UpdateUI(text, message) {
   resultENDE.innerText = text;
 }
 
+function alertsENDE(text, message) {
+  let timerInterval;
+  Swal.fire({
+    title: text,
+    html: message,
+    timer: 1750,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector("b");
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    }
+  }).then((result) => {
+    /* Read more about handling dismissals below */
+    if (result.dismiss === Swal.DismissReason.timer) {
+      console.log("I was closed by the timer");
+    }
+  });
+  return;
+  }
+
+
 
 btnencrypt.addEventListener("click", encrypt);
 btndecrypt.addEventListener("click", decrypt);
 btncopy.addEventListener("click", copy);
+
