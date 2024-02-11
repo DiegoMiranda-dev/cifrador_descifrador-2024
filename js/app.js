@@ -5,7 +5,7 @@ let btndecrypt = document.getElementById("btn-decrypt");
 let btncopy = document.getElementById("btn-copy");
 let resultENDE = document.getElementById("result-en/de");
 
-function encrypt() {
+let encrypt = () => {
   let mainText = document.getElementById("before-text").value;
   if (mainText.trim() === "") {
     alertsENDE('¡Error!', 'No hay ningún texto para cifrar');
@@ -19,14 +19,16 @@ function encrypt() {
     o: "ober",
     u: "fat",
   };
-  let encryptedText = mainText.replace(/[aeiou]/gi, function (remplaceVowels) {
+  let encryptedText = mainText.replace(/[aeiou]/gi, (remplaceVowels) => {
     return vowels[remplaceVowels.toLowerCase()];
   });
+
+
   UpdateUI(encryptedText, 'Texto cifrado con éxito');
   resultENDE.innerText = encryptedText;
 }
 
-function decrypt() {
+let decrypt = () => {
   let mainText = document.getElementById("before-text").value;
   if (mainText.trim() === "") {
     alertsENDE('¡Error!', 'No hay ningún texto para descifrar');
@@ -42,7 +44,7 @@ function decrypt() {
   };
   let decryptedText = mainText.replace(
     /(ai|enter|imes|ober|fat)/gi,
-    function (remplaceEncrypt) {
+     (remplaceEncrypt) => {
       return replaceVowels[remplaceEncrypt.toLowerCase()];
     }
   );
