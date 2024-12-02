@@ -19,7 +19,6 @@ Este proyecto es una aplicación web que permite cifrar y descifrar cualquier te
 
 ## Vista Previa
 
-![Captura de pantalla 2024-07-14 001517]([https://github.com/user-attachments/assets/eb4d8c1e-2aee-469e-9c5e-d0f5d83a3189](https://diegomiranda-dev.github.io/cifrador_descifrador-2024/))
 
 ![Captura de pantalla 2024-07-14 001544](https://github.com/user-attachments/assets/e47432e7-2249-41dc-8ad5-8812a6fab999)
 
